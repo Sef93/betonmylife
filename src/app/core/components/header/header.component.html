@@ -1,0 +1,15 @@
+<div class="flex-row justify-spacebetween">
+<div class="flex-row align-center">
+    <div class="hamburger" (click)="openMenu()" *ngIf="loggedIn | async">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <h2>{{title | async}}</h2>
+</div>
+<div *ngIf="(loggedIn | async)">
+    <ng-container *ngIf="user|async as user">
+        <div class="image" [ngStyle] = "returnStyleObject(user.pictureUrl)"></div>
+    </ng-container>
+</div>
+</div>

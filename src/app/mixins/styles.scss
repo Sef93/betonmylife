@@ -1,0 +1,148 @@
+@import "fonts.scss";
+@import "variables.scss";
+body, html{
+    font-family: "Roboto-Reg";
+    height: 100%;
+    padding:0;
+    margin:0;
+}
+
+.page{
+    display:flex;
+    flex-direction: column;
+    height: 100%;
+    padding:0 1em;
+}
+.bold, b{
+    font-family: "Roboto-Medium";
+    font-weight: bold;
+}
+.thin{
+    font-family: "Roboto-Thin";
+}
+.abs-center{
+    display: grid;
+    place-items: center;
+}
+.block{
+    display: block;
+}
+.flex-row{
+    display: flex;
+}
+.flex-column{
+    display: flex;
+    flex-direction: column;
+}
+.align-center{
+    align-items: center;
+}
+.justify-spacebetween{
+    justify-content: space-between;
+}
+a{
+    color: $link-color;
+    cursor: pointer;
+    &:focus, &:hover{
+        color: lighten($link-color, 7);
+        text-decoration: underline;
+    };
+    text-decoration: none;
+}
+.maxheight{
+    height: 100%;
+}
+.errorMsg{
+    color: $error-msg-color;
+}
+form > label.input-group{
+    display: grid;
+    grid-template-columns: fit-content;
+    grid-template-columns: minmax(min-content, 120px) auto;
+    align-items: center;
+    cursor: pointer;
+    font-family: "Roboto-Bold";
+    &.vertical{
+
+    }
+
+}
+.fullwidth{
+    width: 100%;
+}
+.text-left{
+    text-align: left;
+}
+.text-center{
+    text-align: center;
+}
+.text-right{
+    text-align: right;
+}
+.link-container{
+    display: flex;
+    flex-direction: column;
+    margin:1em 0;
+    > a{
+        margin: .1em 0;
+    }
+}
+.grow-1{
+    flex-grow:1;
+}
+
+input{
+    $margin: .4em 0 .9em 0;
+    display:block;
+    margin: $margin;
+    padding: .5em 1em;
+    border: 0;
+    border-bottom: 2px solid $input-border-color;
+    background-color: $input-background-color;
+    transform: 1s all;
+    &:not(:disabled){
+        &:focus, &:hover{
+            border-bottom-color: lighten($input-border-color, 15);
+        }
+    }
+
+    &.error{
+        margin-bottom: 0px;
+        border-bottom-color: $input-border-color-error;
+        & + small.errorMsg{
+            display: block;
+            margin: $margin;
+        }
+    }
+    width: 100%;
+    font-family: "Roboto-Reg";
+    box-sizing: border-box;
+}
+form{
+    min-width: 320px;
+}
+div.image{
+    border-radius: 100%;
+    background-size: 100% 100% !important;
+    background-repeat: no-repeat !important;
+    background-position: center center !important;
+}
+
+button{
+    background-color: $button-background-color;
+    padding: .4em 1.3em;
+    border-radius: 8px;
+    color: white;
+    border: 0;
+    font-size: 1em;
+    cursor: pointer;
+    &:focus, &:hover{
+        background-color: darken($button-background-color, 7);
+    }
+    &.disabled{
+        background-color: $button-background-color-disabled;
+    }
+    &.secondary{
+        background-color: $button-background-color-secondary;
+    }
+}

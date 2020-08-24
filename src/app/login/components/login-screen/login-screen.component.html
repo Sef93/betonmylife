@@ -1,0 +1,22 @@
+<div class="page abs-center">
+    <div class="">
+        <form [formGroup] = "form" (ngSubmit)="login()" #loginForm = "ngForm">
+            <label>
+                <input type="email" placeholder="E-mail" formControlName = "email" [class.error] = "loginForm.submitted && loginForm.form.controls.email.errors">
+                <small class="errorMsg" *ngIf="loginForm.submitted && loginForm.form.controls.email.errors?.required">Required field.</small>
+                <small class="errorMsg" *ngIf="loginForm.submitted && loginForm.form.controls.email.errors?.email">Invalid e-mail format.</small>
+            </label>
+            <label>
+                <input type="password" placeholder="Password"  formControlName = "password" [class.error] = "loginForm.submitted && loginForm.form.controls.password.errors"> 
+                <small class="errorMsg" *ngIf="loginForm.submitted && loginForm.form.controls.password.errors?.required">Required field.</small>
+            </label>
+            <button class="fullwidth">Login</button>
+            <div class="text-right link-container">
+                <a routerLink="/registration">Don't have an account yet? Register</a>
+                <a routerLink="/forgotten-password">Forgot your password?</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+

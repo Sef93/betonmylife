@@ -1,0 +1,15 @@
+<div class="abs-center page">
+    <div>
+        <form [formGroup] = "form" (ngSubmit)="changePassword()" #passwordForm = "ngForm">
+            <label>
+                <input type="email" placeholder="E-mail" formControlName = "email" [class.error] = "passwordForm.submitted && passwordForm.form.controls.email.errors">
+                <small class="errorMsg" *ngIf="passwordForm.submitted && passwordForm.form.controls.email.errors?.required">Required field.</small>
+                <small class="errorMsg" *ngIf="passwordForm.submitted && passwordForm.form.controls.email.errors?.email">Invalid e-mail format.</small>
+            </label>
+            <button  class="fullwidth">Send</button>
+            <div class="text-right link-container">
+                <a routerLink="/login">Login</a>
+            </div>
+        </form>
+    </div>
+</div>

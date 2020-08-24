@@ -1,0 +1,31 @@
+<div class="page">
+    <div class="abs-center grow-1">
+        <form [formGroup] = "form" (ngSubmit)="edit()" #profileForm="ngForm">
+            <ng-container *ngIf="user|async as user">
+                <div class="image" [ngStyle] = "returnStyleObject(user.pictureUrl)"></div>
+            </ng-container>
+            <br>
+            <label class="input-group">
+                First Name
+                <input type="text" placeholder="First Name"  formControlName = "firstName" [class.error] = "profileForm.submitted && profileForm.form.controls.firstName.errors"> 
+                <small class="errorMsg" *ngIf="profileForm.submitted && profileForm.form.controls.firstName.errors?.required">Required field.</small>
+            </label>
+            <label class="input-group">
+                Last Name
+                <input type="text" placeholder="Last Name"  formControlName = "lastName" [class.error] = "profileForm.submitted && profileForm.form.controls.lastName.errors"> 
+                <small class="errorMsg" *ngIf="profileForm.submitted && profileForm.form.controls.lastName.errors?.required">Required field.</small>
+            </label>
+            <label class="input-group">
+                E-mail
+                <input type="email" placeholder="E-mail" formControlName = "email" [class.error] = "profileForm.submitted && profileForm.form.controls.email.errors">
+                <small class="errorMsg" *ngIf="profileForm.submitted && profileForm.form.controls.email.errors?.required">Required field.</small>
+                <small class="errorMsg" *ngIf="profileForm.submitted && profileForm.form.controls.email.errors?.email">Invalid e-mail format.</small>
+            </label>
+            <button class="fullwidth" (click)="manageFormControlDisabled(true)" type="button" *ngIf="!isFormEditable">Edit</button>
+            <div *ngIf="isFormEditable" class="profile-button-container">
+                <button type="submit">Save</button>
+                <button class="secondary" type="reset">Cancel</button>
+            </div>
+        </form>
+    </div>
+</div>

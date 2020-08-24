@@ -1,0 +1,9 @@
+.profile-button-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 15px;
+}
+form > .image{
+    width: 320px;
+    height: 320px;
+}

@@ -1,0 +1,42 @@
+<div class="page abs-center">
+        <form [formGroup] = "form" (ngSubmit)="register()" #registerForm = "ngForm">
+            <label>
+                E-mail
+                <input type="email" placeholder="E-mail" formControlName = "email" [class.error] = "registerForm.submitted && registerForm.form.controls.email.errors">
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.controls.email.errors?.required">Required field.</small>
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.controls.email.errors?.email">Invalid e-mail format.</small>
+            </label>
+            <label>
+                Picture URL
+                <input type="pictureUrl" placeholder="pictureUrl URL" formControlName = "pictureUrl" [class.error] = "registerForm.submitted && registerForm.form.controls.pictureUrl.errors">
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.controls.pictureUrl.errors?.required">Required field.</small>
+            </label>
+            <label>
+                First Name
+                <input type="text" placeholder="First Name" formControlName = "firstName" [class.error] = "registerForm.submitted && registerForm.form.controls.firstName.errors">
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.controls.firstName.errors?.required">Required field.</small>
+            </label>
+            <label>
+                Last Name
+                <input type="text" placeholder="Last Name" formControlName = "lastName" [class.error] = "registerForm.submitted && registerForm.form.controls.lastName.errors">
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.controls.lastName.errors?.required">Required field.</small>
+            </label>
+            <label>
+                Password
+                <input type="password" placeholder="Password" formControlName = "password" [class.error] = "registerForm.submitted && registerForm.form.controls.password.errors">
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.controls.password.errors?.required">Required field.</small>
+            </label>
+            <label>
+                Confirm Password
+                <input type="password" placeholder="Confirm Password" formControlName = "passwordAgain" [class.error] = "registerForm.submitted && (registerForm.form.controls.passwordAgain.errors || registerForm.form.errors?.differentPw)">
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.controls.passwordAgain.errors?.required">Required field.</small>
+                <small class="errorMsg" *ngIf="registerForm.submitted && registerForm.form.errors?.differentPw">Password mismatch</small>
+            </label>
+            <button (click)="register()" class="fullwidth">Register</button>
+            <div class="text-right link-container">
+                <a routerLink="/login">Alerady have an account? Login</a>
+            </div>
+        </form>
+</div>
+
+

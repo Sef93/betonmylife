@@ -1,0 +1,25 @@
+@import "../../../mixins/variables";
+.hamburger{
+    cursor: pointer;
+    & > div{
+        height: 3px;
+        width: 25px;
+        background-color: $primary-color;
+        margin: 3px 6px;
+        border-top-left-radius: 8px;
+        border-bottom-left-radius: 8px;
+        border-top-right-radius: 8px;
+        border-bottom-right-radius: 8px;
+    }
+}
+h2{
+    margin:0;
+}
+.flex-row{
+    margin:5px;
+}
+.image{
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}

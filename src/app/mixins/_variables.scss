@@ -1,0 +1,17 @@
+//minimalistic as fuck
+
+$primary-color: #2f6d9f;
+$success-color: #00b4b2;
+$light-grey: #E5E5E5;
+$error-color: #cc0000;
+
+/* component colors */
+$error-msg-color: $error-color;
+$link-color: $primary-color;
+$input-border-color : $primary-color;
+$input-background-color: $light-grey;
+$input-border-color-error: $error-color;
+$button-background-color: $success-color;
+$button-background-color-disabled: $light-grey;
+$button-background-color-secondary: darken($light-grey, 14);
+/* component colors end */
